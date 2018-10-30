@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.zcc.demo.kotlin.module.DumyData
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         niceToast("hi")
         rv_main_list.layoutManager = LinearLayoutManager(this)
         rv_main_list.adapter = MyAdapter(mItems, this)
+        val dumyData: DumyData = DumyData();
+        dumyData.name = "ADADadad"
+        dumyData.nameT="ADADadad"
+        niceToast(dumyData.nameT)
     }
 
     fun niceToast(message: String, className: String = "wtf???",

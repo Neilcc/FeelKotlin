@@ -10,9 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zcc.demo.kotlin.module.DumyData
-import com.zcc.demo.kotlin.module.main.MainData
+import com.zcc.demo.kotlin.module.main.data.MainData
 import com.zcc.demo.kotlin.module.toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,12 +52,15 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount(): Int = items.size
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bind(items[position])
+            holder.bind(items, position)
         }
 
         class ViewHolder(itemView: TextView) : RecyclerView.ViewHolder(itemView) {
-            fun bind(s: String) {
-                (itemView as TextView).text = s
+
+            fun bind(items: List<String>, position: Int) {
+                with(items[position]) {
+                    (itemView as TextView).text = this
+                }
             }
         }
 
@@ -73,6 +78,12 @@ class MainActivity : AppCompatActivity() {
         val mapp = HashMap<Int, Int>()
         for ((key, value) in mapp) {
             Log.d(key.toString(), value.toString())
+        }
+        runOnUiThread {
+            var name2 = "a"
+        }
+
+        GlobalScope.launch {
         }
     }
 }

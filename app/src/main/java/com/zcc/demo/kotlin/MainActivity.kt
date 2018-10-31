@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             fun bind(items: List<String>, position: Int) {
                 with(items[position]) {
                     (itemView as TextView).text = this
+                    itemView.setOnClickListener { itemView.context.toast("hh") }
                 }
             }
         }

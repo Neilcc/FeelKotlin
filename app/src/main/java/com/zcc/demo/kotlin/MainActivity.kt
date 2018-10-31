@@ -2,6 +2,7 @@ package com.zcc.demo.kotlin
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
@@ -26,14 +27,12 @@ class MainActivity : AppCompatActivity() {
         niceToast("hi")
         rv_main_list.layoutManager = LinearLayoutManager(this)
         rv_main_list.adapter = MyAdapter(mItems, this)
-        val dumyData: DumyData = DumyData();
+        val dumyData: DumyData = DumyData()
         dumyData.name = "ADADadad"
-        dumyData.nameT="ADADadad"
+        dumyData.nameT = "ADADadad"
         niceToast(dumyData.nameT)
-        toast("hh");
-
+        toast("hh")
     }
-
 
 
     fun niceToast(message: String, className: String = "wtf???",
@@ -54,20 +53,26 @@ class MainActivity : AppCompatActivity() {
             holder.bind(items[position])
         }
 
-
         class ViewHolder(itemView: TextView) : RecyclerView.ViewHolder(itemView) {
             fun bind(s: String) {
                 (itemView as TextView).text = s
             }
-
         }
 
     }
 
-    fun test(){
+    fun test() {
         val f1 = MainData("haha", 123)
         val f2 = f1.copy(age = 22)
         val f3 = f1.copy("aa")
         val f4 = f1.copy(name = "1122")
+
+        val (name) = f1
+        Log.d(name, name)
+
+        val mapp = HashMap<Int, Int>()
+        for ((key, value) in mapp) {
+            Log.d(key.toString(), value.toString())
+        }
     }
 }

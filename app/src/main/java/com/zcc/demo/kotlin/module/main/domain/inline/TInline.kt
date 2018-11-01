@@ -1,12 +1,8 @@
 package com.zcc.demo.kotlin.module.main.domain.inline
 
 
-inline fun tinline(params: (Int) -> Unit) {
-    val k = 6
-    params(k)
-}
 
-class TInline {
+open class TInline {
     fun test() {
 
         tinline(
@@ -34,8 +30,17 @@ class TInline {
 
     }
 
-    fun ef(){
+    fun ef() {
 
+    }
+
+    protected fun pef() {
+
+    }
+
+    inline fun tinline(params: (Int) -> Unit) {
+        val k = 6
+        params(k)
     }
 
 }

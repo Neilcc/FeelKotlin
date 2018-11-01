@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
 
     fun niceToast(message: String, className: String = "wtf???",
-                  length: Int = Toast.LENGTH_LONG): Unit {
+                  length: Int = Toast.LENGTH_LONG)  {
         Toast.makeText(this, "[$className] $message", length).show();
     }
 
